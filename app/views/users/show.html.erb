@@ -1,0 +1,14 @@
+<div class="card card-gossip">
+<div class="card-header">
+  <h2><%=@the_user.last_name%> <%=@the_user.first_name%></h2>
+</div>
+<div class="card-body">
+  <blockquote class="blockquote mb-0">
+    <p>Description : <%= @the_user.description %></p>
+    <p>Email : <%= @the_user.email %> </p>
+    <p>Age : <%= @the_user.age %> </p>
+    <p>Ville : <%= @the_user.city.name %> </p>
+    <p> <%= link_to "En savoir plus sur la ville de l'auteur ...", city_path(:id=> @the_user.city_id) %> </p>
+  </blockquote>
+</div>
+</div>

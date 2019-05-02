@@ -1,0 +1,2 @@
+module UniqgossipHelper
+end

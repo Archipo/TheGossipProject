@@ -1,0 +1,43 @@
+<div class="alert-message">
+<% if @the_user.errors.any? %>
+<div class="alert alert-danger" role="alert">
+<h3 class="alert-heading">Erreurs</h3>
+<h4>Nous n'avons pas réussi à créer votre compte :/</h4>
+<ul>
+    <% @the_user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+</div>
+
+<div class="card create-user">
+  <div class="card-header">
+    <p>Création d'un compte utilisateur</p>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+      <%= label_tag 'First name' %>
+    <%= text_field_tag 'first_name'%>
+    <br /> <br />
+
+    <%= label_tag 'Last name' %>
+    <%= text_field_tag 'last_name' %>
+    <br /> <br />
+
+    <%= label_tag 'Email' %>
+    <%= text_field_tag 'email' %>
+    <br /> <br />
+
+    <%= label_tag 'Password' %>
+    <%= text_field_tag 'password' %>
+    <br /> <br />
+
+    <%= submit_tag "Créer mon compte" %>
+
+<% end %>
+</blockquote>
+</div>
+</div>

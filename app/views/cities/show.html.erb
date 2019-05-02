@@ -1,0 +1,21 @@
+<h1> Page de la ville : <%= @the_city.name %> </h1>
+
+<div class="row">
+<% @the_city.each do |gossip| %>
+  <div class="col-sm-4" style="padding: 50px">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3 class="card-title"> <%= gossip.user.first_name %> </h3>
+    <h4 class="card-subtitle mb-2 text-muted">à écrit</h4>
+    <p class="card-text">  <%= gossip.title %> </p>
+    <p><% if gossip.likes.where(user_id: current_user.id).count > 0 %>
+    <%= link_to "Unlike", like_path(:id=> gossip.likes.sample), class:"btn btn-danger btn-sm", role:"button", data: {:method => "delete"} %>
+    <% else %>
+    <%= link_to "Like", likes_path(:gossip_id=> gossip.id), class:"btn btn-info btn-sm", role:"button", data: {:method => "create"} %>
+    <% end %></p>
+    <h5> Likes : <%= gossip.likes.count %><h5>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
